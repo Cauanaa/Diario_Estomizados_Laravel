@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Agendamento;
 use App\Models\Clinica;
 use Illuminate\Http\Request;
+use App\Charts\GraficoAgendamento;
 
 class AgendamentoController extends Controller
 {
@@ -109,4 +110,10 @@ class AgendamentoController extends Controller
 
         return view('agendamento.list')->with(['agendamentos'=> $agendamentos]);
     }
+
+    public function chart(GraficoAgendamento $agendamentos){
+
+        return view('agendamento/chart')->with(['agendamentos'=>  $agendamentos->build()
+    ]);
+}
 }

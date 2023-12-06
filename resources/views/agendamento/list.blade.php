@@ -61,6 +61,17 @@
                 border-radius: 5px;">
                 <a href="{{ route('agendamento.create') }}" style="color:white; text-decoration:none">Cadastrar</a>
             </button>
+
+            <button style="padding: 5px; 
+                text-align: center; 
+                display: inline-block; 
+                font-size: 16px;
+                background-color: #C770D1; 
+                width: 100px;  
+                height: 40px;
+                border-radius: 5px;">
+                <a href="{{ route('agendamento.chart') }}" style="color:white; text-decoration:none">Gráfico</a>
+            </button>
             </div>
         </form>
         </div>

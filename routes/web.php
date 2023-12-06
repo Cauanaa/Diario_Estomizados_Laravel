@@ -154,8 +154,8 @@ Route::middleware('auth')->group(function () {
         [AgendamentoController::class, 'search'])->name('agendamento.search');
 
     //relatorio
-    Route::get('/agendamento/report/',
-        [AgendamentoController::class, 'report'])->name('agendamento.report');
+    Route::get('/agendamento/chart/',
+        [AgendamentoController::class, 'chart'])->name('agendamento.chart');
 
 
     //rotas clinicas

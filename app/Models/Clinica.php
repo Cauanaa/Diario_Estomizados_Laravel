@@ -16,6 +16,7 @@ class Clinica extends Model
         'nome',
         'contato',
         'email',
-        'endereco'
+        'endereco',
+        'imagem',
     ];
 }

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('contato',50);
             $table->string('email',150);
             $table->string('endereco',150);
+            $table->string('imagem',150)->nullable();
             $table->timestamps();
         });
     }

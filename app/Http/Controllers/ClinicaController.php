@@ -46,6 +46,20 @@ class ClinicaController extends Controller
             'endereco'=>$request->endereco,
         ];
 
+        $imagem = $request->file('imagem');
+        //verifica se existe imagem no formulário
+
+        if($imagem){
+            $nome_arquivo =
+            date('YmdHis').'.'.$imagem->getClientOriginalExtension();
+
+            $diretorio = "imagem/clinica/";
+            //salva imagem em uma pasta do sistema
+            $imagem->storeAs($diretorio,$nome_arquivo,'public');
+
+            $dados['imagem'] = $diretorio.$nome_arquivo;
+        }
+
         Clinica::create($dados); //ou  $request->all()
 
         return redirect('clinica')->with('success', "Cadastrado com sucesso!");
@@ -92,7 +106,21 @@ class ClinicaController extends Controller
             'contato'=> $request->contato,
             'email'=> $request->email,
             'endereco'=>$request->endereco,
+            'imagem'=>$request->imagem
         ];
+
+        $imagem = $request->file('imagem');
+        //verifica se existe imagem no formulário
+        if($imagem){
+            $nome_arquivo =
+            date('YmdHis').'.'.$imagem->getClientOriginalExtension();
+
+            $diretorio = "imagem/produto/";
+            //salva imagem em uma pasta do sistema
+            $imagem->storeAs($diretorio,$nome_arquivo,'public');
+
+            $dados['imagem'] = $diretorio.$nome_arquivo;
+        }
 
         Clinica::updateOrCreate(
             ['id'=>$request->id],

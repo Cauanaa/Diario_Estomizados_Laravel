@@ -49,6 +49,20 @@ class TrocaBolsaController extends Controller
             'notas'=>$request->notas,
         ];
 
+        $imagem = $request->file('imagem');
+        //verifica se existe imagem no formulário
+
+        if($imagem){
+            $nome_arquivo =
+            date('YmdHis').'.'.$imagem->getClientOriginalExtension();
+
+            $diretorio = "imagem/troca/";
+            //salva imagem em uma pasta do sistema
+            $imagem->storeAs($diretorio,$nome_arquivo,'public');
+
+            $dados['imagem'] = $diretorio.$nome_arquivo;
+        }
+
         TrocaBolsa::create($dados); //ou  $request->all()
 
         return redirect('troca')->with('success', "Cadastrado com sucesso!");
@@ -98,7 +112,21 @@ class TrocaBolsaController extends Controller
             'motivo'=> $request->motivo,
             'condicoes'=>$request->condicoes,
             'notas'=>$request->notas,
+            'imagem'=>$request->imagem,
         ];
+
+        $imagem = $request->file('imagem');
+        //verifica se existe imagem no formulário
+        if($imagem){
+            $nome_arquivo =
+            date('YmdHis').'.'.$imagem->getClientOriginalExtension();
+
+            $diretorio = "imagem/troca/";
+            //salva imagem em uma pasta do sistema
+            $imagem->storeAs($diretorio,$nome_arquivo,'public');
+
+            $dados['imagem'] = $diretorio.$nome_arquivo;
+        }
 
         TrocaBolsa::updateOrCreate(
             ['id'=>$request->id],

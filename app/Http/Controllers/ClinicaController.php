@@ -115,7 +115,7 @@ class ClinicaController extends Controller
             $nome_arquivo =
             date('YmdHis').'.'.$imagem->getClientOriginalExtension();
 
-            $diretorio = "imagem/produto/";
+            $diretorio = "imagem/clinica/";
             //salva imagem em uma pasta do sistema
             $imagem->storeAs($diretorio,$nome_arquivo,'public');
 

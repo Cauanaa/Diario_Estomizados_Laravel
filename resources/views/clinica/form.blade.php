@@ -76,7 +76,7 @@
                         value="@if (!empty(old('endereco'))) {{ old('endereco') }}@elseif(!empty($clinica->endereco)){{ $clinica->endereco }}@else{{ '' }} @endif"><br><br>
                 </label>
                 @php
-                    $nome_imagem = !empty($produto->imagem) ? $produto->imagem : 'sem_imagem.jpg';
+                    $nome_imagem = !empty($clinica->imagem) ? $clinica->imagem : 'sem_imagem.jpg';
                 @endphp
                     
                 <div class="col-md-6 mb-4">

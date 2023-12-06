@@ -14,6 +14,7 @@
             <thead>
                 <tr class="table" style="background-color: #CCCCC">
                     <th scope="col">#</th>
+                    <th scope="col">Imagem</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Contato</th>
                     <th scope="col">Email</th>
@@ -22,8 +23,14 @@
             </thead>
             <tbody>
                 @foreach($clinicas ?? '' as $item)
+                @php
+                   $nome_imagem = !empty($item->imagem) ? $item->imagem : 'sem_imagem.jpg';
+                   $srcImagem = public_path()."/storage/".$nome_imagem;
+                @endphp
                 <tr>
                     <th scope="row">{{ $item->id }}</th>
+                    <td class="h-32 w-32 object-cover rounded-full"><img src="{{$srcImagem}}"
+                        style="width: 100px; height: 60px; object-fit: cover" alt="imagem"></td>
                     <td>{{ $item->nome }}</td>
                     <td>{{ $item->contato }}</td>
                     <td>{{ $item->email }}</td>

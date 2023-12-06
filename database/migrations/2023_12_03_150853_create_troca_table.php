@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('motivo')->nullable();
             $table->string('condicoes')->nullable();
             $table->string('notas');
+            $table->string('imagem',150)->nullable();
             $table->timestamps();
         });
     }

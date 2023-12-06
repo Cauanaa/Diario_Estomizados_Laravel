@@ -17,6 +17,7 @@ class TrocaBolsa extends Model
         'removida',
         'motivo',
         'condicoes',
-        'notas'
+        'notas',
+        'imagem',
     ];
 }

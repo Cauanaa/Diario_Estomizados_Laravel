@@ -89,11 +89,11 @@
              <div class="card">
                 <div class="card-body">
                     <img src="/storage/{{ $nome_imagem }}" style="width: 100%; height: 150px; object-fit: cover; margin-bottom: 10px" alt="imagem">
-                    <h5 class="card-title">{{ $item->id }} - {{ $item->aplicada }}</h5>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Data de remoção {{ $item->removida }}</h6>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Motivo de troca {{ $item->motivo }}</h6>
-                    <p class="card-text">Condições da pele {{ $item->condicoes }}</p>
-                    <p class="card-text">Notas {{ $item->notas }}</p>
+                    <h5 class="card-title">{{ $item->id }})  Aplicação: {{ $item->aplicada }}</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">Data de remoção: {{ $item->removida }}</h6>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">Motivo de troca: {{ $item->motivo }}</h6>
+                    <p class="card-text">Condições da pele: {{ $item->condicoes }}</p>
+                    <p class="card-text">Notas: {{ $item->notas }}</p>
                     <a style="color: #C770D1" href="{{ route('troca.edit', $item->id) }}">Editar</a>
                     <a style="color: #C770D1; margin-left: 10px" href="{{ route('troca.destroy', $item->id) }}">Excluir</a>
                 </div>

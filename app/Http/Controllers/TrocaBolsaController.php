@@ -153,7 +153,7 @@ class TrocaBolsaController extends Controller
     public function search(Request $request)
     {
         if(!empty($request->valor)){
-            $troca = TrocaBolsa::where(
+            $trocas = TrocaBolsa::where(
                 $request->tipo,
                  'like' ,
                 "%". $request->valor."%"

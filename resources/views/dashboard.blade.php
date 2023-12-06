@@ -3,6 +3,17 @@
 @section('titulo', 'App')
 
 @section('content')
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
 <div style="background-color: #F2D1F5; display: flex; flex-direction: row; justify-content: space-between; align-items: center; padding: 15px 30px; width: 100%">
   <div>
     <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
@@ -16,62 +27,31 @@
       Como você está?
     </p>
   </div>
-<div>
+<div> 
 
-<form method="POST" action="{{ route('logout') }}">
-                      @csrf
-                      <a
-                      class="dropdown-item"
-                      href="route('logout')"
-                              onclick="event.preventDefault();
-                                          this.closest('form').submit();">
-                          {{ __('Log Out') }}
-                      </a>
-                  </form>
-
-  <x-responsive-nav-link :href="route('status.index')" :active="request()->routeIs('dicas')">
-      <button style="padding: 10px 30px; 
+    <div class="dropdown">
+    <button style="padding: 10px 30px; 
           text-align: center; 
           display: inline-block; 
           font-size: 15px; margin-bottom: 13px; 
           background-color: #C770D1; 
-          width: 100px;  
+          width: 150px;  
+          color: white;
+          font-weight: bold;
           border-radius: 10px;
-          margin-right: 5px">
-          <p style="font-weight: bold;color: white; text-decoration: none; font-size: 14px, margin-bottom: 20px">Status</p>
-      </button>
-      </x-responsive-nav-link>
-
-      <x-responsive-nav-link :href="route('clinica.index')" :active="request()->routeIs('dicas')">
-      <button style="padding: 10px 30px; 
-          text-align: center; 
-          display: inline-block; 
-          font-size: 15px; margin-bottom: 13px; 
-          background-color: #C770D1; 
-          width: 100px;  
-          border-radius: 10px;
-          margin-right: 5px">
-          <p style="font-weight: bold;color: white; text-decoration: none; font-size: 14px, margin-bottom: 20px">Clínicas</p>
-      </button>
-      </x-responsive-nav-link>
-
-    <x-responsive-nav-link :href="route('dicas')" :active="request()->routeIs('dicas')">
-      <button style="padding: 10px 30px; 
-          text-align: center; 
-          display: inline-block; 
-          font-size: 15px; margin-bottom: 13px; 
-          background-color: #C770D1; 
-          width: 100px;  
-          border-radius: 10px;
-          margin-right: 5px">
-          <p style="font-weight: bold;color: white; text-decoration: none; font-size: 14px, margin-bottom: 20px">Dicas</p>
-      </button>
-    </x-responsive-nav-link>
-
-    <a href="{{route('register')}}"
-      style="width: 1em;display: inline-block; margin-left: 5px" >
-      <img src="../../imagens/3pontos.png" alt="Logo">
-    </a>
+          margin-right: 5px"
+          type="button" data-toggle="dropdown">Menu
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="{{ route('status.index') }}">Status</a></li>
+      <li><a href="{{ route('clinica.index') }}">Clinicas</a></li>
+      <li><a href="{{ route('dicas') }}">Dicas</a></li>
+      <form method="POST" action="{{ route('logout') }}">
+          @csrf                       
+      <li><a href="route('logout')" style="color: #C770D1; margin-left: 20px" onclick="event.preventDefault(); this.closest('form').submit();"> Sair</a></li>
+      </form>
+    </ul>
+  </div>
   </div>
 </div>
 
@@ -90,5 +70,6 @@
         
     </div>
 </div>
+</body>
 @endsection
 
